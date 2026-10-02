@@ -1,0 +1,31 @@
+function div(x, y) {
+    return x / y;
+}
+
+function mul(x, y) {
+    return x * y;
+}
+
+function add(x, y) {
+    return x + y;
+}
+
+function sub(x, y) {
+    return x - y;
+}
+
+let num1 = 15;
+let num2 = 10;
+let oper = "/";
+
+if (oper === "/") {
+    console.log(div(num1, num2));
+} else if (oper === "*") {
+    console.log(mul(num1, num2));
+} else if (oper === "+") {
+    console.log(add(num1, num2));
+} else if (oper === "-") {
+    console.log(sub(num1, num2));
+} else {
+    console.log("Неизвестная операция");
+}
