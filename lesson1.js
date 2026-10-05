@@ -1,4 +1,8 @@
 function div(x, y) {
+    if (y === 0) {
+        console.log("Ошибка: на ноль делить нельзя!");
+        return null;
+    }
     return x / y;
 }
 
