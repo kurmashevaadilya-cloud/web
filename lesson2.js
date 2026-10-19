@@ -4,6 +4,7 @@ let customer2 = "Askar";
 let price1 = 120;
 let quantity1 = 4;
 
+
 let price2 = 200;
 let quantity2 = 2;
 
