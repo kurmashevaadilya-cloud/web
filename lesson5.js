@@ -66,8 +66,8 @@ console.log("Number of letters:", longestName.name.length);
 
 const updatedStudents = students.map(student => ({
     ...student,
-    grade: student.grade + 5
+    percentage: student.percentage + 5
 }));
 
 console.log("Original students:", students);
-console.log("Students with updated grades:", updatedStudents);
+console.log("Students with updated percentages:", updatedStudents);
