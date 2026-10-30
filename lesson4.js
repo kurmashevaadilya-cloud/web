@@ -1,33 +1,49 @@
 const students = [
-    {id: 1, name: "Adinay"},
-    {id: 2, name: "Tilek"},
-    {id: 3, name: "Islam"},
-    {id: 4, name: "Shahzoda"},
-    {id: 5, name: "Adilya"},
-    {id: 6, name: "Fatima"},
-    {id: 7, name: "Usman"},
-    {id: 8, name: "AbuBakr"},
-    {id: 9, name: "Aisuluu"},
-    {id: 10, name: "Aziza"},
+    {name: "Adinay", percentage: 88},
+    {name: "Tilek", percentage: 76},
+    {name: "Islam", percentage: 95},
+    {name: "Shahzoda", percentage: 63},
+    {name: "Adilya", percentage: 91},
+    {name: "Fatima", percentage: 84},
+    {name: "Usman", percentage: 55},
+    {name: "AbuBakr", percentage: 100},
+    {name: "Aisuluu", percentage: 72},
+    {name: "Aziza", percentage: 90},
 ];
 
-let totalLetters = 0;
-let maxLetters = 0;
-let longestNames = [];
+let totalPercentage = 0;
+let highestStudent = students[0];
+let lowestStudent = students[0];
 
 for (const student of students) {
-    const letterCount = student.name.length;
-    totalLetters += letterCount;
+    let letterGrade;
 
-    console.log(`${student.name}: ${letterCount} букв`);
+    if (student.percentage >= 90) {
+        letterGrade = "A";
+    } else if (student.percentage >= 80) {
+        letterGrade = "B";
+    } else if (student.percentage >= 70) {
+        letterGrade = "C";
+    } else if (student.percentage >= 60) {
+        letterGrade = "D";
+    } else {
+        letterGrade = "F";
+    }
 
-    if (letterCount > maxLetters) {
-        maxLetters = letterCount;
-        longestNames = [student.name];
-    } else if (letterCount === maxLetters) {
-        longestNames.push(student.name);
+    totalPercentage += student.percentage;
+    console.log(`${student.name}: ${student.percentage}% — ${letterGrade}`);
+
+    if (student.percentage > highestStudent.percentage) {
+        highestStudent = student;
+    }
+
+    if (student.percentage < lowestStudent.percentage) {
+        lowestStudent = student;
     }
 }
 
-console.log(`Всего букв в именах: ${totalLetters}`);
-console.log(`Больше всего букв (${maxLetters}) в имени: ${longestNames.join(", ")}`);
+const averagePercentage = totalPercentage / students.length;
+
+console.log(`Average Grade: ${averagePercentage}%`);
+console.log(`HIGHEST GRADE: ${highestStudent.name} (${highestStudent.percentage}%)`);
+console.log(`LOWEST GRADE: ${lowestStudent.name} (${lowestStudent.percentage}%)`);
